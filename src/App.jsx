@@ -23,89 +23,262 @@ function allTestsPass(results) {
 
 function App() {
   const [allQuestions] = useState([
+    // 🔧 برمجة - تصحيح الأخطاء
     {
       title: 'Fix The Sum Function',
       prompt: 'The following function contains a bug. Write the corrected version:',
       starter: 'function sum(a, b) {\n  return a - b;\n}',
       funcName: 'sum',
-      testCases: [[2, 3, 5], [0, 0, 0], [10, 5, 15], [-1, 1, 0]]
-    },
-    {
-      title: 'Write Even/Odd Checker',
-      prompt: 'Write a JavaScript function that returns true for even numbers and false for odd numbers:',
-      starter: 'function isEven(n) {\n  // write your solution\n}',
-      funcName: 'isEven',
-      testCases: [[2, true], [3, false], [0, true], [100, true], [99, false]]
-    },
-    {
-      title: 'Fix Comparison Logic',
-      prompt: 'Fix the condition so the function returns the larger value:',
-      starter: 'function max2(a, b) {\n  if (a < b) return a;\n  return b;\n}',
-      funcName: 'max2',
-      testCases: [[5, 10, 10], [20, 5, 20], [7, 7, 7], [-1, -2, -1]]
-    },
-    {
-      title: 'Array Sum',
-      prompt: 'Write a function that returns the sum of all elements in numbers:',
-      starter: 'function arraySum(numbers) {\n  // write your solution\n}',
-      funcName: 'arraySum',
-      testCases: [[[1, 2, 3], 6], [[0], 0], [[5, 10, 15, 20], 50], [[-1, 1, -2, 2], 0]]
-    },
-    {
-      title: 'Reverse A String',
-      prompt: 'Write a function that returns the reversed text:',
-      starter: 'function reverseText(text) {\n  // write your solution\n}',
-      funcName: 'reverseText',
-      testCases: [['hello', 'olleh'], ['abc', 'cba'], ['a', 'a'], ['test', 'tset']]
-    },
-    {
-      title: 'Fix The Loop',
-      prompt: 'Fix the loop so it prints numbers from 1 to 5:',
-      starter: 'let output = [];\nfor (let i = 1; i >= 5; i++) {\n  output.push(i);\n}\nfunction getLoop() { return output; }',
-      funcName: 'getLoop',
-      testCases: [[[], [1, 2, 3, 4, 5]]]
-    },
-    {
-      title: 'Check If Value Exists',
-      prompt: 'Write a function that returns true if value exists inside arr:',
-      starter: 'function contains(arr, value) {\n  // write your solution\n}',
-      funcName: 'contains',
-      testCases: [[[1, 2, 3], 2, true], [[1, 2, 3], 4, false], [[], 0, false], [["a", "b"], "a", true]]
-    },
-    {
-      title: 'Fix String Length',
-      prompt: 'Fix the function so it correctly returns string length:',
-      starter: 'function getLength(str) {\n  return str.length();\n}',
-      funcName: 'getLength',
-      testCases: [['hello', 5], ['', 0], ['test', 4], ['ab', 2]]
-    },
-    {
-      title: 'Convert To Uppercase',
-      prompt: 'Write a function that converts text to uppercase:',
-      starter: 'function toUpper(text) {\n  // write your solution\n}',
-      funcName: 'toUpper',
-      testCases: [['hello', 'HELLO'], ['test', 'TEST'], ['ABC', 'ABC'], ['a', 'A']]
-    },
-    {
-      title: 'Strict Equality Check',
-      prompt: 'Fix the line to use strict equality:',
-      starter: 'function checkStrict(x) {\n  if (x == 10) {\n    return true;\n  }\n  return false;\n}',
-      funcName: 'checkStrict',
-      testCases: [[10, true], ['10', false], [9, false], [10.0, true]]
-    },
-    {
-      title: 'Max In Array',
-      prompt: 'Write a function that returns the maximum number in nums:',
-      starter: 'function maxInArray(nums) {\n  // write your solution\n}',
-      funcName: 'maxInArray',
-      testCases: [[[1, 5, 3], 5], [[10, 2, 8], 10], [[0, -1, -5], 0], [[100], 100]]
+      testCases: [[2, 3, 5], [0, 0, 0], [10, 5, 15], [-1, 1, 0]],
+      category: 'programming'
     },
     {
       title: 'Fix Subtraction Function',
       prompt: 'Fix the function so it subtracts b from a:',
       starter: 'function sub(a, b) {\n  return b - a;\n}',
       funcName: 'sub',
-      testCases: [[10, 3, 7], [5, 5, 0], [0, 5, -5], [100, 1, 99]]
+      testCases: [[10, 3, 7], [5, 5, 0], [0, 5, -5], [100, 1, 99]],
+      category: 'programming'
+    },
+    {
+      title: 'Fix Comparison Logic',
+      prompt: 'Fix the condition so the function returns the larger value:',
+      starter: 'function max2(a, b) {\n  if (a < b) return a;\n  return b;\n}',
+      funcName: 'max2',
+      testCases: [[5, 10, 10], [20, 5, 20], [7, 7, 7], [-1, -2, -1]],
+      category: 'programming'
+    },
+    {
+      title: 'Fix String Length',
+      prompt: 'Fix the function so it correctly returns string length:',
+      starter: 'function getLength(str) {\n  return str.length();\n}',
+      funcName: 'getLength',
+      testCases: [['hello', 5], ['', 0], ['test', 4], ['ab', 2]],
+      category: 'programming'
+    },
+    {
+      title: 'Fix The Loop',
+      prompt: 'Fix the loop so it prints numbers from 1 to 5:',
+      starter: 'let output = [];\nfor (let i = 1; i >= 5; i++) {\n  output.push(i);\n}\nfunction getLoop() { return output; }',
+      funcName: 'getLoop',
+      testCases: [[[], [1, 2, 3, 4, 5]]],
+      category: 'programming'
+    },
+    {
+      title: 'Strict Equality Check',
+      prompt: 'Fix the line to use strict equality:',
+      starter: 'function checkStrict(x) {\n  if (x == 10) {\n    return true;\n  }\n  return false;\n}',
+      funcName: 'checkStrict',
+      testCases: [[10, true], ['10', false], [9, false], [10.0, true]],
+      category: 'programming'
+    },
+
+    // 📝 برمجة - كتابة دوال
+    {
+      title: 'Write Even/Odd Checker',
+      prompt: 'Write a JavaScript function that returns true for even numbers and false for odd numbers:',
+      starter: 'function isEven(n) {\n  // write your solution\n}',
+      funcName: 'isEven',
+      testCases: [[2, true], [3, false], [0, true], [100, true], [99, false]],
+      category: 'programming'
+    },
+    {
+      title: 'Array Sum',
+      prompt: 'Write a function that returns the sum of all elements in numbers:',
+      starter: 'function arraySum(numbers) {\n  // write your solution\n}',
+      funcName: 'arraySum',
+      testCases: [[[1, 2, 3], 6], [[0], 0], [[5, 10, 15, 20], 50], [[-1, 1, -2, 2], 0]],
+      category: 'programming'
+    },
+    {
+      title: 'Reverse A String',
+      prompt: 'Write a function that returns the reversed text:',
+      starter: 'function reverseText(text) {\n  // write your solution\n}',
+      funcName: 'reverseText',
+      testCases: [['hello', 'olleh'], ['abc', 'cba'], ['a', 'a'], ['test', 'tset']],
+      category: 'programming'
+    },
+    {
+      title: 'Check If Value Exists',
+      prompt: 'Write a function that returns true if value exists inside arr:',
+      starter: 'function contains(arr, value) {\n  // write your solution\n}',
+      funcName: 'contains',
+      testCases: [[[1, 2, 3], 2, true], [[1, 2, 3], 4, false], [[], 0, false], [["a", "b"], "a", true]],
+      category: 'programming'
+    },
+    {
+      title: 'Convert To Uppercase',
+      prompt: 'Write a function that converts text to uppercase:',
+      starter: 'function toUpper(text) {\n  // write your solution\n}',
+      funcName: 'toUpper',
+      testCases: [['hello', 'HELLO'], ['test', 'TEST'], ['ABC', 'ABC'], ['a', 'A']],
+      category: 'programming'
+    },
+    {
+      title: 'Max In Array',
+      prompt: 'Write a function that returns the maximum number in nums:',
+      starter: 'function maxInArray(nums) {\n  // write your solution\n}',
+      funcName: 'maxInArray',
+      testCases: [[[1, 5, 3], 5], [[10, 2, 8], 10], [[0, -1, -5], 0], [[100], 100]],
+      category: 'programming'
+    },
+    {
+      title: 'Count Array Elements',
+      prompt: 'Write a function that returns the number of elements in arr:',
+      starter: 'function countElements(arr) {\n  // write your solution\n}',
+      funcName: 'countElements',
+      testCases: [[[1, 2, 3], 3], [[], 0], [['a', 'b', 'c', 'd'], 4], [[100, 200], 2]],
+      category: 'programming'
+    },
+    {
+      title: 'Check If Palindrome',
+      prompt: 'Write a function that returns true if text is a palindrome (reads same forwards and backwards):',
+      starter: 'function isPalindrome(text) {\n  // write your solution\n}',
+      funcName: 'isPalindrome',
+      testCases: [['racecar', true], ['hello', false], ['a', true], ['level', true], ['test', false]],
+      category: 'programming'
+    },
+    {
+      title: 'Factorial Calculator',
+      prompt: 'Write a function that returns the factorial of n (n!):',
+      starter: 'function factorial(n) {\n  // write your solution\n}',
+      funcName: 'factorial',
+      testCases: [[5, 120], [3, 6], [1, 1], [0, 1], [4, 24]],
+      category: 'programming'
+    },
+    {
+      title: 'Filter Even Numbers',
+      prompt: 'Write a function that returns only the even numbers from arr:',
+      starter: 'function filterEven(arr) {\n  // write your solution\n}',
+      funcName: 'filterEven',
+      testCases: [[[1, 2, 3, 4, 5], [2, 4]], [[1, 3, 5], []], [[2, 4, 6], [2, 4, 6]], [[10, 11, 12], [10, 12]]],
+      category: 'programming'
+    },
+
+    // 🔢 رياضيات - معادلات
+    {
+      title: 'Solve Linear Equation',
+      prompt: 'Solve: 2x + 5 = 13. What is x?',
+      starter: 'function solveLinear() {\n  // write your solution\n  return x;\n}',
+      funcName: 'solveLinear',
+      testCases: [[[], 4]],
+      category: 'math'
+    },
+    {
+      title: 'Quadratic Equation Solution',
+      prompt: 'Solve: x² - 5x + 6 = 0. Return the two solutions as an array:',
+      starter: 'function solveQuadratic() {\n  // write your solution\n  return [x1, x2];\n}',
+      funcName: 'solveQuadratic',
+      testCases: [[[], [2, 3]]],
+      category: 'math'
+    },
+    {
+      title: 'System of Equations',
+      prompt: 'Solve the system:\n2x + y = 5\nx - y = 1\nReturn [x, y]:',
+      starter: 'function solveSystem() {\n  // 2x + y = 5\n  // x - y = 1\n  return [x, y];\n}',
+      funcName: 'solveSystem',
+      testCases: [[[], [2, 1]]],
+      category: 'math'
+    },
+    {
+      title: 'Calculate Perimeter',
+      prompt: 'Write a function that calculates the perimeter of a rectangle (P = 2(l + w)):',
+      starter: 'function perimeter(length, width) {\n  // write your solution\n}',
+      funcName: 'perimeter',
+      testCases: [[5, 3, 16], [10, 10, 40], [7, 2, 18], [1, 1, 4]],
+      category: 'math'
+    },
+    {
+      title: 'Calculate Area of Circle',
+      prompt: 'Write a function that calculates the area of a circle (A = πr²):',
+      starter: 'function circleArea(radius) {\n  // write your solution\n}',
+      funcName: 'circleArea',
+      testCases: [[1, 3.14159265], [2, 12.56637], [5, 78.53981], [10, 314.15926]],
+      category: 'math'
+    },
+
+    // 📊 رياضيات - متتاليات
+    {
+      title: 'Arithmetic Sequence (nth term)',
+      prompt: 'Find the 10th term of arithmetic sequence: 2, 5, 8, 11, ...\nFormula: an = a₁ + (n-1)d',
+      starter: 'function nthTerm(n) {\n  // a1 = 2, d = 3, find term at position n\n  return term;\n}',
+      funcName: 'nthTerm',
+      testCases: [[10, 29], [1, 2], [5, 14], [3, 8]],
+      category: 'sequence'
+    },
+    {
+      title: 'Geometric Sequence',
+      prompt: 'Find the 6th term of geometric sequence: 3, 6, 12, 24, ...\nFormula: an = a₁ × r^(n-1)',
+      starter: 'function geometricTerm(n) {\n  // a1 = 3, r = 2, find term at position n\n  return term;\n}',
+      funcName: 'geometricTerm',
+      testCases: [[6, 96], [1, 3], [4, 24], [5, 48]],
+      category: 'sequence'
+    },
+    {
+      title: 'Fibonacci Sequence',
+      prompt: 'Return the nth Fibonacci number (starts with 1, 1, 2, 3, 5, 8, ...):',
+      starter: 'function fibonacci(n) {\n  // write your solution\n}',
+      funcName: 'fibonacci',
+      testCases: [[6, 8], [1, 1], [5, 5], [7, 13], [8, 21]],
+      category: 'sequence'
+    },
+    {
+      title: 'Sum of Arithmetic Series',
+      prompt: 'Find the sum of first 5 terms: 2 + 5 + 8 + 11 + 14\nFormula: S = n/2 × (a₁ + an)',
+      starter: 'function sumArithmetic(n) {\n  // a1 = 2, d = 3, find sum of first n terms\n  return sum;\n}',
+      funcName: 'sumArithmetic',
+      testCases: [[5, 40], [1, 2], [3, 12], [4, 26]],
+      category: 'sequence'
+    },
+    {
+      title: 'Sum of Geometric Series',
+      prompt: 'Find sum of first 4 terms: 1 + 2 + 4 + 8\nFormula: S = a₁ × (1 - r^n) / (1 - r)',
+      starter: 'function sumGeometric(n) {\n  // a1 = 1, r = 2, find sum of first n terms\n  return sum;\n}',
+      funcName: 'sumGeometric',
+      testCases: [[4, 15], [1, 1], [3, 7], [5, 31]],
+      category: 'sequence'
+    },
+
+    // 🧮 رياضيات - متقدم
+    {
+      title: 'Power Function',
+      prompt: 'Write a function that calculates a to the power of b (a^b):',
+      starter: 'function power(a, b) {\n  // write your solution\n}',
+      funcName: 'power',
+      testCases: [[2, 3, 8], [5, 2, 25], [10, 3, 1000], [2, 0, 1], [3, 3, 27]],
+      category: 'math'
+    },
+    {
+      title: 'Greatest Common Divisor (GCD)',
+      prompt: 'Write a function that finds the GCD of two numbers:',
+      starter: 'function gcd(a, b) {\n  // write your solution\n}',
+      funcName: 'gcd',
+      testCases: [[12, 8, 4], [21, 14, 7], [100, 50, 50], [17, 19, 1]],
+      category: 'math'
+    },
+    {
+      title: 'Prime Number Checker',
+      prompt: 'Write a function that returns true if n is a prime number:',
+      starter: 'function isPrime(n) {\n  // write your solution\n}',
+      funcName: 'isPrime',
+      testCases: [[2, true], [3, true], [4, false], [17, true], [20, false], [1, false]],
+      category: 'math'
+    },
+    {
+      title: 'Absolute Value',
+      prompt: 'Write a function that returns the absolute value of n:',
+      starter: 'function abs(n) {\n  // write your solution\n}',
+      funcName: 'abs',
+      testCases: [[-5, 5], [10, 10], [-100, 100], [0, 0], [3.5, 3.5]],
+      category: 'math'
+    },
+    {
+      title: 'Average Calculator',
+      prompt: 'Write a function that calculates the average of numbers in an array:',
+      starter: 'function average(numbers) {\n  // write your solution\n}',
+      funcName: 'average',
+      testCases: [[[1, 2, 3, 4, 5], 3], [[10, 20], 15], [[100], 100], [[5, 5, 5], 5]],
+      category: 'math'
     }
   ]);
 
@@ -119,13 +292,24 @@ function App() {
   const currentQuestion = useMemo(() => pickedQuestions[currentIndex], [pickedQuestions, currentIndex]);
 
   function startGame() {
-    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, 3);
+    // تجميع الأسئلة حسب الفئة
+    const programmiing = allQuestions.filter(q => q.category === 'programming');
+    const math = allQuestions.filter(q => q.category === 'math');
+    const sequence = allQuestions.filter(q => q.category === 'sequence');
+    
+    // اختيار سؤال عشوائي من كل فئة
+    const selected = [];
+    if (programmiing.length > 0) selected.push(programmiing[Math.floor(Math.random() * programmiing.length)]);
+    if (math.length > 0) selected.push(math[Math.floor(Math.random() * math.length)]);
+    if (sequence.length > 0) selected.push(sequence[Math.floor(Math.random() * sequence.length)]);
+    
+    // خلط الأسئلة المختارة
+    const shuffled = selected.sort(() => Math.random() - 0.5);
 
-    setPickedQuestions(selected);
+    setPickedQuestions(shuffled);
     setCurrentIndex(0);
     setScore(0);
-    setAnswerInput(selected[0]?.starter || '');
+    setAnswerInput(shuffled[0]?.starter || '');
     setFeedback('');
     setGameState('Playing');
   }
